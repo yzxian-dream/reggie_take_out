@@ -8,6 +8,7 @@ import com.yzx.reggie.utils.SMSUtils;
 import com.yzx.reggie.utils.ValidateCodeUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +24,8 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private UseService useService;
-
+    @Autowired
+    private RedisTemplate redisTemplate;
     /**
      * 处理移动端业务，调用阿里云提供的sdk调用阿里云的api进行短信发送业务
      * @param user
