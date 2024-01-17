@@ -5,6 +5,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -20,6 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //开启组件扫描,，来扫描webfilter注解，从而创建过滤器
 @ServletComponentScan
 @EnableTransactionManagement
+@EnableCaching //开启spring-cache的缓存注解功能
 public class ReggieTakeOutApplication {
 
     public static void main(String[] args) {
