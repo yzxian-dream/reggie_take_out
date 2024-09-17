@@ -33,7 +33,8 @@ public class AddressBookController {
         addressBook.setUserId(BaseContext.getCurrentId());
         log.info("addressBook:{}", addressBook);
         addressBookService.save(addressBook);
-        System.out.println("保存成功");
+        System.out.println("save成功-----");
+        System.out.println("准备返回----");
         return R.success(addressBook);
     }
 
