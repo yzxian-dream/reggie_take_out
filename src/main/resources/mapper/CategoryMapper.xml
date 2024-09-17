@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzx.reggie.mapper.CategoryMapper">
+  <resultMap id="BaseResultMap" type="com.yzx.reggie.entity.Category">
+    <!--@mbg.generated-->
+    <!--@Table category-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
+    <result column="test1" jdbcType="VARCHAR" property="test1" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `type`, `name`, sort, create_time, update_time, create_user, update_user, test1
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from category
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from category
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yzx.reggie.entity.Category">
+    <!--@mbg.generated-->
+    insert into category (id, `type`, `name`, 
+      sort, create_time, update_time, 
+      create_user, update_user, test1
+      )
+    values (#{id,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=BIGINT}, #{updateUser,jdbcType=BIGINT}, #{test1,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yzx.reggie.entity.Category">
+    <!--@mbg.generated-->
+    insert into category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="test1 != null">
+        test1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=BIGINT},
+      </if>
+      <if test="test1 != null">
+        #{test1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yzx.reggie.entity.Category">
+    <!--@mbg.generated-->
+    update category
+    <set>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=BIGINT},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=BIGINT},
+      </if>
+      <if test="test1 != null">
+        test1 = #{test1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yzx.reggie.entity.Category">
+    <!--@mbg.generated-->
+    update category
+    set `type` = #{type,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=BIGINT},
+      update_user = #{updateUser,jdbcType=BIGINT},
+      test1 = #{test1,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+<!--auto generated by MybatisCodeHelper on 2024-08-03-->
+  <select id="findByNameAndType" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from category
+    where `name`=#{name,jdbcType=VARCHAR} and `type`=#{type,jdbcType=INTEGER}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2024-08-03-->
+  <select id="findByIdBetweenAndNameIn" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from category
+    where id <![CDATA[>]]> #{minId,jdbcType=BIGINT} and id <![CDATA[<]]> #{maxId,jdbcType=BIGINT} and `name` in
+    <foreach close=")" collection="nameCollection" index="index" item="item" open="(" separator=",">
+      #{item,jdbcType=VARCHAR}
+    </foreach>
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2024-08-03-->
+  <select id="findByAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from category
+    <where>
+      <if test="id != null">
+        and id=#{id,jdbcType=BIGINT}
+      </if>
+      <if test="type != null">
+        and `type`=#{type,jdbcType=INTEGER}
+      </if>
+      <if test="name != null">
+        and `name`=#{name,jdbcType=VARCHAR}
+      </if>
+      <if test="sort != null">
+        and sort=#{sort,jdbcType=INTEGER}
+      </if>
+      <if test="createTime != null">
+        and create_time=#{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateTime != null">
+        and update_time=#{updateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="createUser != null">
+        and create_user=#{createUser,jdbcType=BIGINT}
+      </if>
+      <if test="updateUser != null">
+        and update_user=#{updateUser,jdbcType=BIGINT}
+      </if>
+    </where>
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2024-08-03-->
+  <update id="updateById">
+    update category
+    <set>
+      <if test="updated.id != null">
+        id = #{updated.id,jdbcType=BIGINT},
+      </if>
+      <if test="updated.type != null">
+        type = #{updated.type,jdbcType=INTEGER},
+      </if>
+      <if test="updated.name != null">
+        name = #{updated.name,jdbcType=VARCHAR},
+      </if>
+      <if test="updated.sort != null">
+        sort = #{updated.sort,jdbcType=INTEGER},
+      </if>
+      <if test="updated.createTime != null">
+        create_time = #{updated.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated.updateTime != null">
+        update_time = #{updated.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated.createUser != null">
+        create_user = #{updated.createUser,jdbcType=BIGINT},
+      </if>
+      <if test="updated.updateUser != null">
+        update_user = #{updated.updateUser,jdbcType=BIGINT},
+      </if>
+      <if test="updated.test1 != null">
+        test1 = #{updated.test1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <where>
+      <if test="id != null">
+        and id=#{id,jdbcType=BIGINT}
+      </if>
+    </where>
+  </update>
+</mapper>

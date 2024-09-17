@@ -1,74 +1,88 @@
 package com.yzx.reggie.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import lombok.Data;
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
- 菜品
+ * 菜品管理
  */
 @Data
-public class Dish implements Serializable {
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Dish {
+        private static final long serialVersionUID = 1L;
+        /**
+         * 主键
+         */
+        private Long id;
 
-    private static final long serialVersionUID = 1L;
+        /**
+         * 菜品名称
+         */
+        private String name;
 
-    private Long id;
+        /**
+         * 菜品分类id
+         */
+        private Long categoryId;
 
+        /**
+         * 菜品价格
+         */
+        private BigDecimal price;
 
-    //菜品名称
-    private String name;
+        /**
+         * 商品码
+         */
+        private String code;
 
+        /**
+         * 图片
+         */
+        private String image;
 
-    //菜品分类id
-    private Long categoryId;
+        /**
+         * 描述信息
+         */
+        private String description;
 
+        /**
+         * 0 停售 1 起售
+         */
+        private Integer status;
 
-    //菜品价格
-    private BigDecimal price;
+        /**
+         * 顺序
+         */
+        private Integer sort;
 
+        /**
+         * 创建时间
+         */
+        private Date createTime;
 
-    //商品码
-    private String code;
+        /**
+         * 更新时间
+         */
+        private Date updateTime;
 
+        /**
+         * 创建人
+         */
+        private Long createUser;
 
-    //图片
-    private String image;
+        /**
+         * 修改人
+         */
+        private Long updateUser;
 
-
-    //描述信息
-    private String description;
-
-
-    //0 停售 1 起售
-    private Integer status;
-
-
-    //顺序
-    private Integer sort;
-
-
-    @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
-
-
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime updateTime;
-
-
-    @TableField(fill = FieldFill.INSERT)
-    private Long createUser;
-
-
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Long updateUser;
-
-
-    //是否删除
-    private Integer isDeleted;
-
+        /**
+         * 是否删除
+         */
+        private Integer isDeleted;
 }
