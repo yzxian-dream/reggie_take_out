@@ -7,7 +7,7 @@ public class BaseContext {
     private static ThreadLocal<Long> threadLocal = new ThreadLocal<>();
     public static void setCurrentId(Long id){
         System.out.println("sssdsss");
-        System.out.println("ooooo");
+        System.out.println("test7");
         System.out.println("eeessssee");
         threadLocal.set(id);
 
