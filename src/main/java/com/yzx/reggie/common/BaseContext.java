@@ -8,7 +8,8 @@ public class BaseContext {
     public static void setCurrentId(Long id){
         System.out.println("sssdsss");
         System.out.println("toooooasd");
-        System.out.println("ttattoua");
+        System.out.println("iiii");
+        System.out.println("eeeee");
         threadLocal.set(id);
 
         System.out.println("测试");
