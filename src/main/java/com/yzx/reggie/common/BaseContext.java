@@ -6,6 +6,7 @@ package com.yzx.reggie.common;
 public class BaseContext {
     private static ThreadLocal<Long> threadLocal = new ThreadLocal<>();
     public static void setCurrentId(Long id){
+        System.out.println("ssss");
         System.out.println("ttttt");
         threadLocal.set(id);
     }
